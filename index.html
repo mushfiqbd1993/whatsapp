@@ -56,15 +56,17 @@
         -->
 
         <script>
-            fetch('config.json')
-              .then(res => res.json())
-              .then(data => {
-                const profiles = data.profiles;
-                const randomProfile = profiles[Math.floor(Math.random() * profiles.length)];
-                document.getElementById('continue-btn').href = "https://wa.me/" + randomProfile.number;
-                document.getElementById('profile-img').src = randomProfile.image;
-                document.getElementById('profile-name').textContent = randomProfile.name;
-              });
+            document.addEventListener("DOMContentLoaded", function() {
+              fetch('config.json')
+                .then(res => res.json())
+                .then(data => {
+                  const profiles = data.profiles;
+                  const randomProfile = profiles[Math.floor(Math.random() * profiles.length)];
+                  document.getElementById('continue-btn').href = "https://wa.me/" + randomProfile.number;
+                  document.getElementById('profile-img').src = randomProfile.image;
+                  document.getElementById('profile-name').textContent = randomProfile.name;
+                });
+            });
             </script>
         <script nonce="">
             __DEV__=0;
